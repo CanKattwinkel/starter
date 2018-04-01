@@ -9,7 +9,7 @@
     "start:dev": "nodemon",
     "prestart:prod": "rm -rf dist && tsc",
     "start:prod": "node dist/main.js",
-    "test": "jest",
+    "test": "jest --watch",
     "test:cov": "jest --coverage",
     "test:e2e": "jest --config ./test/jest-e2e.json"
   },
@@ -45,7 +45,6 @@
       "^.+\\.(t|j)s$": "ts-jest"
     },
     "coverageDirectory": "../coverage",
-    "collectCoverage": true,
     "moduleNameMapper": {
       "@core/(.*)": "<rootDir>/../../core/src/$1"
     }
