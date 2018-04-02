@@ -6,9 +6,14 @@
 - npm (installed with nodejs - please do not use npm directly but yarn) 
 - yarn (`npm i -g yarn`)
 - Angular CLI (`yarn global add @angular/cli`)
+- VirtualBox
+- Vagrant
 
 ## How do you turn this on?
 
+
+- Database `cd env`
+    1. Start Database: `vagrant up` 
 - Client `cd client`
     1. Install dependencies with `yarn`
     1. Start development server with `yarn start`
