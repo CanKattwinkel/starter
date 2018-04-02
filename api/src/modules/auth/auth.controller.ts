@@ -1,15 +1,15 @@
-import {Controller, Get, HttpCode, HttpStatus, Post} from '@nestjs/common';
+import {Body, Controller, Get, Post, ValidationPipe} from '@nestjs/common';
 import {AuthService} from './auth.service';
+import {LoginDto} from './login.dto';
 
 @Controller('auth')
 export class AuthController {
     constructor(private readonly authService: AuthService) {
     }
 
-    @Post('token')
-    @HttpCode(HttpStatus.OK)
-    public async getToken() {
-        return await this.authService.createToken();
+    @Post()
+    public async login(@Body(new ValidationPipe()) loginDto: LoginDto) {
+        return await this.authService.login(loginDto.mail, loginDto.password);
     }
 
     @Get('authorized')

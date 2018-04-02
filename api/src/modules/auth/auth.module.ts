@@ -4,10 +4,12 @@ import {AuthService} from './auth.service';
 import {JwtStrategy} from './passport/jwt.strategy';
 import {AuthController} from './auth.controller';
 import {ConfigModule} from '../config/config.module';
+import {UserModule} from '../user/user.module';
 
 @Module({
     imports: [
         ConfigModule,
+        UserModule,
     ],
     components: [AuthService, JwtStrategy],
     controllers: [AuthController],

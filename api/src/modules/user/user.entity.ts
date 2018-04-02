@@ -15,7 +15,7 @@ export class UserEntity {
     @PrimaryGeneratedColumn()
     id: number;
 
-    @Column()
+    @Column({unique: true})
     mail: string;
 
     @CreateDateColumn({type: 'timestamp'})
