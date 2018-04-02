@@ -21,6 +21,7 @@
     "@nestjs/microservices": "^4.5.8",
     "@nestjs/testing": "^4.5.5",
     "@nestjs/websockets": "^4.5.8",
+    "bcrypt": "^1.0.3",
     "jsonwebtoken": "^8.2.0",
     "passport": "^0.4.0",
     "passport-jwt": "^4.0.0",
@@ -31,6 +32,7 @@
     "typescript": "^2.6.2"
   },
   "devDependencies": {
+    "@types/bcrypt": "^1.0.0",
     "@types/express": "^4.0.39",
     "@types/jest": "^21.1.8",
     "@types/node": "^9.3.0",
