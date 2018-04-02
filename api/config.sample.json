@@ -1,3 +1,5 @@
 {
-  "environment": "dev"
+  "environment": "dev",
+  "jwtSecret": "fah7faeGIiR5Ashm2huNai4Hahohx4Feeazd4Iechoaiph1auWLu4ushiasoTivoo5ohzae0HahLwo9Ooji9A",
+  "jwtExpiresIn": 3600
 }
