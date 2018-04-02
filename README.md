@@ -20,6 +20,9 @@
     1. (Optional): Run Tests in Background (watch) `yarn test` 
 - API Server `cd api`
     1. Install dependencies with `yarn`
+    1. Copy Configuration Template files 
+        1. `/api/ormconfig.sample.json` -> `/api/ormconfig.json`
+        1. `/api/config.sample.json` -> `/api/config.json`
     1. Start development server with `yarn start`
     1. (Optional): Run Tests in Background (watch) `yarn test` 
 
