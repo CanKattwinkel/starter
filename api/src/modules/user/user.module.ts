@@ -5,19 +5,19 @@ import {userRepoProvider} from './user-repository.provider';
 import {UserService} from './user.service';
 
 @Module({
-    modules: [
-        DatabaseModule,
-        ConfigModule,
-    ],
-    controllers: [],
-    components: [
-        userRepoProvider,
-        UserService,
-    ],
-    exports: [
-        userRepoProvider,
-        UserService,
-    ]
+  modules: [
+    DatabaseModule,
+    ConfigModule,
+  ],
+  controllers: [],
+  components: [
+    userRepoProvider,
+    UserService,
+  ],
+  exports: [
+    userRepoProvider,
+    UserService,
+  ]
 })
 export class UserModule {
 }

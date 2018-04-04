@@ -7,20 +7,20 @@ import {ConfigModule} from '../config/config.module';
 import {UserModule} from '../user/user.module';
 
 @Module({
-    imports: [
-        ConfigModule,
-        UserModule,
-    ],
-    components: [AuthService, JwtStrategy],
-    controllers: [AuthController],
+  imports: [
+    ConfigModule,
+    UserModule,
+  ],
+  components: [AuthService, JwtStrategy],
+  controllers: [AuthController],
 })
 export class AuthModule implements NestModule {
 
 
-    // todo user level check
-    public configure(consumer: MiddlewaresConsumer) {
-        consumer
-            .apply(passport.authenticate('jwt', {session: false}))
-            .forRoutes({path: '/auth/authorized', method: RequestMethod.ALL});
-    }
+  // todo user level check
+  public configure(consumer: MiddlewaresConsumer) {
+    consumer
+      .apply(passport.authenticate('jwt', {session: false}))
+      .forRoutes({path: '/auth/authorized', method: RequestMethod.ALL});
+  }
 }

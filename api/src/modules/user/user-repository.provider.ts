@@ -2,9 +2,6 @@ import {Connection} from 'typeorm';
 import {UserEntity} from './user.entity';
 import {DbConnectionToken} from '../database/database.provider';
 import {Repository} from 'typeorm/repository/Repository';
-import {PrkConfig} from '../config/config.model';
-
-
 
 
 /**
@@ -19,8 +16,8 @@ export abstract class UserRepo extends Repository<UserEntity> {
 }
 
 export const userRepoProvider = {
-    provide: UserRepo,
-    useFactory: (connection: Connection) => connection.getRepository(UserEntity),
-    inject: [DbConnectionToken],
+  provide: UserRepo,
+  useFactory: (connection: Connection) => connection.getRepository(UserEntity),
+  inject: [DbConnectionToken],
 };
 

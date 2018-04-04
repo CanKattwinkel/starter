@@ -12,14 +12,14 @@ const dbConfigPath = `${configPath}/ormconfig.json`;
 /**
  * Loads the configuration and merges them into a single instance of PrkConfig */
 async function loadConfiguration(): Promise<PrkConfig> {
-    const runtimeConfiguration = await readFileProm<RuntimeConfiguration>(runtimeConfigPath);
-    const dbConfig = await readFileProm<DBConfig>(dbConfigPath);
-    return {runtimeConfiguration, dbConfig};
+  const runtimeConfiguration = await readFileProm<RuntimeConfiguration>(runtimeConfigPath);
+  const dbConfig = await readFileProm<DBConfig>(dbConfigPath);
+  return {runtimeConfiguration, dbConfig};
 }
 
 export const configProviders = [
-    {
-        provide: PrkConfig,
-        useFactory: loadConfiguration
-    },
+  {
+    provide: PrkConfig,
+    useFactory: loadConfiguration
+  },
 ];

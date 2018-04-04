@@ -4,11 +4,12 @@ import {AuthModule} from './modules/auth/auth.module';
 import {UserModule} from './modules/user/user.module';
 
 @Module({
-    imports: [
-        AuthModule,
-        UserModule,
-    ],
+  imports: [
+    AuthModule,
+    UserModule,
+  ],
   controllers: [AppController],
   components: [],
 })
-export class AppModule {}
+export class AppModule {
+}

@@ -8,8 +8,7 @@ import {configProviders} from './config.providers';
   exports: [
     ...configProviders
   ],
-  modules: [
-  ]
+  modules: []
 })
 export class ConfigModule {
 }

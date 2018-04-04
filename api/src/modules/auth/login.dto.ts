@@ -3,10 +3,10 @@ import {IsString} from 'class-validator';
 
 export class LoginDto {
 
-    @IsString()
-    @IsEmail()
-    mail: string;
+  @IsString()
+  @IsEmail()
+  mail: string;
 
-    @IsString()
-    password: string;
+  @IsString()
+  password: string;
 }

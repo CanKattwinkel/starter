@@ -7,19 +7,19 @@ import {HttpException} from '@nestjs/core';
 export class UserService {
 
 
-    constructor(private userRepo: UserRepo) {
-    }
+  constructor(private userRepo: UserRepo) {
+  }
 
-    async getByMail(mail): Promise<Partial<UserEntity>> {
-        const user = await this.userRepo.findOne({select: ['mail', 'password', 'userLevel'], where: {mail}});
-        if (!user) {
-            throw new HttpException(`Couldn't find user for mail: '${mail}'`, 401);
-        }
-        return user;
+  async getByMail(mail): Promise<Partial<UserEntity>> {
+    const user = await this.userRepo.findOne({select: ['mail', 'password', 'userLevel'], where: {mail}});
+    if (!user) {
+      throw new HttpException(`Couldn't find user for mail: '${mail}'`, 401);
     }
+    return user;
+  }
 
-    register(mail: string, password: string): Promise<UserEntity> {
-        const instance = this.userRepo.create({mail, password});
-        return this.userRepo.save(instance);
-    }
+  register(mail: string, password: string): Promise<UserEntity> {
+    const instance = this.userRepo.create({mail, password});
+    return this.userRepo.save(instance);
+  }
 }
