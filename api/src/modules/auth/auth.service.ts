@@ -6,6 +6,9 @@ import {UserEntity} from '../user/user.entity';
 import {UserLevel} from '../user/user-level.enum';
 import {compareIt} from '../../utils/encrypt';
 import {HttpException} from '@nestjs/core';
+import {TokenResponse} from '@core/auth/token-response';
+import {UserInfo} from '@core/auth/user-info';
+import {addSeconds} from 'date-fns';
 
 @Component()
 export class AuthService {
@@ -13,17 +16,18 @@ export class AuthService {
     constructor(private config: PrkConfig, private userService: UserService) {
     }
 
-    async createToken(mail: string, userLevel: UserLevel) {
+    async createToken(mail: string, userLevel: UserLevel): Promise<TokenResponse> {
         const expiresIn = this.config.runtimeConfiguration.jwtExpiresIn;
-        const user = {mail, userLevel};
-        const token = jwt.sign(user, this.config.runtimeConfiguration.jwtSecret, {expiresIn});
+        const expiresAt = addSeconds(new Date(), expiresIn);
+        const userInfo: UserInfo = {mail, userLevel, expiresAt};
+        const token = jwt.sign(userInfo, this.config.runtimeConfiguration.jwtSecret, {expiresIn});
         return {
             expires_in: expiresIn,
             access_token: token,
         };
     }
 
-    async login(mail: string, password: string) {
+    async login(mail: string, password: string): Promise<TokenResponse> {
         const user: Partial<UserEntity> = await this.userService.getByMail(mail);
         const passwordMatch = await compareIt(password, user.password);
         if (!passwordMatch) {
@@ -31,6 +35,12 @@ export class AuthService {
             throw new HttpException('Password incorrect', 401);
         }
         return await this.createToken(user.mail, user.userLevel);
+    }
+
+
+    async register(mail: string, password: string): Promise<TokenResponse> {
+        const user = await this.userService.register(mail, password);
+        return this.createToken(user.mail, user.userLevel);
     }
 
 

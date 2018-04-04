@@ -1,7 +1,9 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { PrivateStartComponent } from './private-start.component';
+import {PrivateStartComponent} from './private-start.component';
 import {RouterTestingModule} from '@angular/router/testing';
+import {UserServiceMock} from '../../../common/user-service/user.service.mock';
+import {UserService} from '../../../common/user-service/user.service';
 
 describe('PrivateStartComponent', () => {
   let component: PrivateStartComponent;
@@ -13,6 +15,7 @@ describe('PrivateStartComponent', () => {
       imports: [
         RouterTestingModule,
       ],
+      providers: [{provide: UserService, useClass: UserServiceMock}],
     })
     .compileComponents();
   }));

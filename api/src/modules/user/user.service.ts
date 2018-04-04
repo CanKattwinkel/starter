@@ -18,4 +18,8 @@ export class UserService {
         return user;
     }
 
+    register(mail: string, password: string): Promise<UserEntity> {
+        const instance = this.userRepo.create({mail, password});
+        return this.userRepo.save(instance);
+    }
 }

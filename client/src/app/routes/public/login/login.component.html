@@ -1,8 +1,6 @@
-<prk-login-form></prk-login-form>
+<prk-login-form (login)="login($event)"></prk-login-form>
 
 
 <ul>
   <li><a [routerLink]="['/']">Back to Home</a></li>
-  <li><a [routerLink]="['/app']">Fake User Login (private)</a></li>
-  <li><a [routerLink]="['/admin']">Fake Admin Login (admin)</a></li>
 </ul>

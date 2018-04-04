@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {UserService} from '../../../common/user-service/user.service';
 
 @Component({
   selector: 'prk-private-start',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PrivateStartComponent implements OnInit {
 
-  constructor() { }
+  constructor(private userService: UserService) {
+  }
 
   ngOnInit() {
   }
 
+  logout() {
+    this.userService.logout();
+  }
 }

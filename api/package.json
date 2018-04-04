@@ -24,6 +24,7 @@
     "@nestjs/websockets": "^4.5.8",
     "bcrypt": "^1.0.3",
     "class-validator": "^0.8.5",
+    "date-fns": "^1.29.0",
     "jsonwebtoken": "^8.2.0",
     "passport": "^0.4.0",
     "passport-jwt": "^4.0.0",

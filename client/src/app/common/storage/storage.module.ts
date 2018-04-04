@@ -3,6 +3,8 @@ import {CommonModule} from '@angular/common';
 import {NgForageConfig, NgForageModule} from 'ngforage';
 import {StorageService} from './storage.service';
 
+export const storagePrefix = 'ab--dd';
+
 @NgModule({
   imports: [
     CommonModule,
@@ -12,7 +14,7 @@ import {StorageService} from './storage.service';
 export class StorageModule {
   public constructor(ngfConfig: NgForageConfig) {
     ngfConfig.configure({
-      name: 'ab--dd',
+      name: storagePrefix,
       // We'll be using localStorage since we are going to save jwt token only
       // currently. This might change as the application grows.
       driver: [

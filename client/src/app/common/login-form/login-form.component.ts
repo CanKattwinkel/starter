@@ -1,5 +1,7 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {User} from '@core/user/user.model';
+import {environment} from '../../../environments/environment';
 
 @Component({
   selector: 'prk-login-form',
@@ -9,14 +11,21 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 export class LoginFormComponent implements OnInit {
   loginForm: FormGroup;
 
+  @Output() login = new EventEmitter<User>();
   constructor(private formBuilder: FormBuilder) {
   }
 
   ngOnInit() {
     this.loginForm = this.formBuilder.group({
-      username: ['', Validators.required],
-      password: ['', Validators.required]
+      mail: [environment.production ? '' : 'user@example.com', Validators.required],
+      password: [environment.production ? '' : 'password', Validators.required]
     });
+  }
+
+  go() {
+    if (this.loginForm.valid) {
+      this.login.next(this.loginForm.value);
+    }
   }
 
 }

@@ -1,12 +1,12 @@
-<form [formGroup]="loginForm" (ngSubmit)="go()">
+<form [formGroup]="registerForm" (submit)="submit()">
   <mat-form-field>
-    <mat-label>Mail</mat-label>
+    <mat-label>E-Mail</mat-label>
     <input matInput formControlName="mail">
   </mat-form-field>
 
   <mat-form-field>
     <mat-label>Password</mat-label>
-    <input matInput  formControlName="password">
+    <input matInput [type] formControlName="password">
   </mat-form-field>
 
   <button color="primary" mat-raised-button>Submit</button>
