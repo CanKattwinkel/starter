@@ -14,9 +14,7 @@ export class PublicGuardService implements CanActivate {
   }
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> {
-    console.log('GUARD RUNNING', route);
     return this.userService.signedIn$.pipe(map(signedIn => {
-      console.log('singed in is', signedIn);
       if (signedIn) {
         // This branch is choosen if the user is already signed in. For that case we want to
         // redirect him to the internal routes - preventing him from going to the login screen again.

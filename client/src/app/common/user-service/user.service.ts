@@ -57,7 +57,7 @@ export class UserService {
     }).toPromise();
 
     await this.saveToken(tokenResponse);
-    await this.router.navigate(['/']);
+    await this.router.navigate(['/app']);
 
   }
 
