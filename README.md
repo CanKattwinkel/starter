@@ -23,7 +23,7 @@
     1. Copy Configuration Template files 
         1. `/api/ormconfig.sample.json` -> `/api/ormconfig.json`
         1. `/api/config.sample.json` -> `/api/config.json`
-    1. Run the database migration once `yarn migrate`
+    1. Run the database migration once `yarn migrate:run`
     1. Start development server with `yarn start`
     1. (Optional): Run Tests in Background (watch) `yarn test` 
 
