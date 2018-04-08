@@ -5,8 +5,8 @@
   "license": "MIT",
   "scripts": {
     "format": "prettier --write \"**/*.ts\"",
-    "start": "ts-node -r tsconfig-paths/register src/main.ts",
-    "start:dev": "nodemon",
+    "start": "nodemon",
+    "start:server": "ts-node -r tsconfig-paths/register src/main.ts",
     "prestart:prod": "rm -rf dist && tsc",
     "start:prod": "node dist/main.js",
     "test": "jest --watch",
