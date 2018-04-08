@@ -1,1 +1,29 @@
-<router-outlet></router-outlet>
+<mat-sidenav-container class="all-wrap" fullscreen>
+  <mat-sidenav #sidenav>
+    <mat-list>
+      <mat-list-item> Foo</mat-list-item>
+      <mat-list-item> Bar</mat-list-item>
+    </mat-list>
+  </mat-sidenav>
+
+  <div class="page-wrap">
+    <header role="banner">
+      <mat-toolbar color="primary">
+        <button
+          type="button"
+          mat-icon-button
+          (click)="sidenav.open()"
+          title="Open sidenav">
+          <mat-icon>menu</mat-icon>
+        </button>
+        Toolbar
+      </mat-toolbar>
+    </header>
+    <main class="content">
+      <router-outlet></router-outlet>
+    </main>
+    <!--Enable for Sticky Footer:-->
+    <!--<footer></footer>-->
+  </div>
+</mat-sidenav-container>
+

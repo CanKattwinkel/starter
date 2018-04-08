@@ -11,6 +11,7 @@ import {PublicGuardService} from './public-guard.service';
 import {PrivateGuardService} from './private-guard.service';
 import {HTTP_INTERCEPTORS, HttpClientModule, HttpClientXsrfModule} from '@angular/common/http';
 import {TokenInterceptor} from './token.interceptor';
+import {MatButtonModule, MatIconModule, MatListModule, MatSidenavModule, MatToolbarModule} from '@angular/material';
 
 
 @NgModule({
@@ -25,6 +26,11 @@ import {TokenInterceptor} from './token.interceptor';
     UserServiceModule.forRoot(),
     HttpClientModule,
     HttpClientXsrfModule,
+    MatButtonModule,
+    MatSidenavModule,
+    MatListModule,
+    MatToolbarModule,
+    MatIconModule
   ],
   providers: [
     PublicGuardService,
