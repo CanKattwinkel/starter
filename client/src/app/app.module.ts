@@ -9,6 +9,8 @@ import {StorageModule} from './common/storage/storage.module';
 import {UserServiceModule} from './common/user-service/user-service.module';
 import {PublicGuardService} from './public-guard.service';
 import {PrivateGuardService} from './private-guard.service';
+import {HTTP_INTERCEPTORS, HttpClientModule, HttpClientXsrfModule} from '@angular/common/http';
+import {TokenInterceptor} from './token.interceptor';
 
 
 @NgModule({
@@ -21,10 +23,17 @@ import {PrivateGuardService} from './private-guard.service';
     AppRoutingModule,
     StorageModule.forRoot(),
     UserServiceModule.forRoot(),
+    HttpClientModule,
+    HttpClientXsrfModule,
   ],
   providers: [
     PublicGuardService,
     PrivateGuardService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenInterceptor,
+      multi: true
+    },
   ],
   bootstrap: [AppComponent]
 })
