@@ -1,7 +1,11 @@
-<p>
-  homepage works!
-</p>
+<div i18n="small icu example">
+  A small ICU example
+  {count, plural, =0 {No kittens} =1 {One kitten} =2 {Two kittens} other {Many kittens}}
+</div>
 
+<button (click)="count = count+1" i18n="button to increase the amount of cats">
+  more Kittens
+</button>
 
-<a [routerLink]="['/login']">Login</a>
-<a [routerLink]="['/registration']">Registration</a>
+<a [routerLink]="['/login']" i18n="button to login">Login</a>
+<a [routerLink]="['/registration']" i18n="button to registration">Registration</a>

@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+  <file source-language="en-GB" datatype="plaintext" original="ng2.template">
+    <body>
+      <trans-unit id="6d3b88a3ae6ff3d987f86395605397ec736dee9c" datatype="html">
+        <source>E-Mail</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/common/login-form/login-form.component.ts</context>
+          <context context-type="linenumber">3</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/common/registration-form/registration-form.component.ts</context>
+          <context context-type="linenumber">3</context>
+        </context-group>
+        <note priority="1" from="description">email field label</note>
+      </trans-unit>
+      <trans-unit id="c32ef07f8803a223a83ed17024b38e8d82292407" datatype="html">
+        <source>Password</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/common/login-form/login-form.component.ts</context>
+          <context context-type="linenumber">8</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/common/registration-form/registration-form.component.ts</context>
+          <context context-type="linenumber">8</context>
+        </context-group>
+        <note priority="1" from="description">password field label</note>
+      </trans-unit>
+      <trans-unit id="71c77bb8cecdf11ec3eead24dd1ba506573fa9cd" datatype="html">
+        <source>Submit</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/common/login-form/login-form.component.ts</context>
+          <context context-type="linenumber">12</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/common/registration-form/registration-form.component.ts</context>
+          <context context-type="linenumber">12</context>
+        </context-group>
+        <note priority="1" from="description">label submit button of login form</note>
+      </trans-unit>
+      <trans-unit id="268f88ca9f781206d502bdc1a2057d5bc3d929d5" datatype="html">
+        <source>Back to Login</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/routes/admin/admin-start/admin-start.component.ts</context>
+          <context context-type="linenumber">5</context>
+        </context-group>
+        <note priority="1" from="description">Link to Login</note>
+      </trans-unit>
+      <trans-unit id="bb694b49d408265c91c62799c2b3a7e3151c824d" datatype="html">
+        <source>Logout</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/routes/private/private-start/private-start.component.ts</context>
+          <context context-type="linenumber">6</context>
+        </context-group>
+        <note priority="1" from="description">logs the user out</note>
+      </trans-unit>
+      <trans-unit id="8fc1ba8884f099971a741e289a1632529fe6f8ae" datatype="html">
+        <source>
+  A small ICU example
+  <x id="ICU" equiv-text="{count, plural, =0 {...} =1 {...} =2 {...} other {...}}"/>
+</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/routes/public/homepage/homepage.component.ts</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+        <note priority="1" from="description">small icu example</note>
+      </trans-unit>
+      <trans-unit id="630c6883e321d69654153942c7712eebb910034d" datatype="html">
+        <source>{VAR_PLURAL, plural, =0 {No kittens} =1 {One kitten} =2 {Two kittens} other {Many kittens} }</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/routes/public/homepage/homepage.component.ts</context>
+          <context context-type="linenumber">3</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="71b16a1a20e80a2e6f1a50e1c065b5017a7b47b0" datatype="html">
+        <source>
+  more Kittens
+</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/routes/public/homepage/homepage.component.ts</context>
+          <context context-type="linenumber">6</context>
+        </context-group>
+        <note priority="1" from="description">button to increase the amount of cats</note>
+      </trans-unit>
+      <trans-unit id="6765b4c916060f6bc42d9bb69e80377dbcb5e4e9" datatype="html">
+        <source>Login</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/routes/public/homepage/homepage.component.ts</context>
+          <context context-type="linenumber">10</context>
+        </context-group>
+        <note priority="1" from="description">button to login</note>
+      </trans-unit>
+      <trans-unit id="7d6573fb998f3a1cf1356623b85850d9d10edaa9" datatype="html">
+        <source>Registration</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/routes/public/homepage/homepage.component.ts</context>
+          <context context-type="linenumber">11</context>
+        </context-group>
+        <note priority="1" from="description">button to registration</note>
+      </trans-unit>
+      <trans-unit id="3fce5da87776ca6f98ca3b346c2b46f2f764f45c" datatype="html">
+        <source>Back to Home</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/routes/public/login/login.component.ts</context>
+          <context context-type="linenumber">5</context>
+        </context-group>
+        <note priority="1" from="description">link to home</note>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

@@ -4,12 +4,21 @@
   "license": "MIT",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve --proxy-config proxy.conf.json",
-    "build": "ng build --prod",
+    "start": "ng serve --aot --locale en-GB --proxy-config proxy.conf.json",
+    "start:de": "ng serve --aot --locale en-GB --i18n-file=./src/locale/messages.de-DE.xlf --proxy-config proxy.conf.json ",
+    "start:fr": "ng serve --aot --locale fr-CA --i18n-file=./src/locale/messages.fr-CA.xlf --proxy-config proxy.conf.json ",
+    "start:es": "ng serve --aot --locale es-ES --i18n-file=./src/locale/messages.es-ES.xlf --proxy-config proxy.conf.json ",
+    "build:single:lang": "ng build  --prod --locale en-GB --base-href /en-GB/ --output-path dist/en-GB",
+    "prebuild": "npm run build:clean && npm run i18n &&  npm run xliffmerge",
+    "build": "npm run build:single:lang  && for lang in de-DE fr-CA es-ES; do LANG=$lang npm run build:single:lang -- --locale $lang  --base-href /$lang/ --i18n-file=./src/locale/messages.$lang.xlf --output-path dist/$lang;  done",
+    "build:clean": "rimraf dist/",
     "test": "ng test",
     "test:coverage": "ng test --code-coverage --single-run",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "i18n": "ng xi18n --locale en-GB --output-path src/locale --i18nFormat=xlf",
+    "posti18n": "npm run xliffmerge",
+    "xliffmerge": "xliffmerge --profile xliffmerge.json"
   },
   "private": true,
   "dependencies": {
@@ -47,8 +56,10 @@
     "karma-coverage-istanbul-reporter": "^1.2.1",
     "karma-jasmine": "~1.1.0",
     "karma-jasmine-html-reporter": "^0.2.2",
+    "ngx-i18nsupport": "^0.13.0",
     "protractor": "~5.1.2",
     "puppeteer": "^1.2.0",
+    "rimraf": "^2.6.2",
     "ts-node": "~4.1.0",
     "tslint": "~5.9.1",
     "typescript": "~2.5.3"
