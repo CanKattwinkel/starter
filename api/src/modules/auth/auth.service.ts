@@ -44,6 +44,10 @@ export class AuthService {
   }
 
 
+  async renewal(user: UserEntity): Promise<ServerOnlyTokenInfo> {
+    return this.createToken(user.mail, user.userLevel);
+  }
+
   async validateUser(signedUser: UserInfo): Promise<boolean> {
     return !!await this.userService.getByMail(signedUser.mail);
   }
