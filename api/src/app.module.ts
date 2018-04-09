@@ -4,12 +4,14 @@ import {AuthModule} from './modules/auth/auth.module';
 import {UserModule} from './modules/user/user.module';
 import {UserMiddleware} from './modules/user/user.middleware';
 import {ConfigModule} from './modules/config/config.module';
+import {ParkspotModule} from './modules/parkspot/parkspot.module';
 
 @Module({
   imports: [
     AuthModule,
     UserModule,
     ConfigModule,
+    ParkspotModule,
   ],
   controllers: [AppController],
   components: [],

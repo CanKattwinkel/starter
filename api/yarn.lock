@@ -31,6 +31,13 @@
     optional "0.1.4"
     redis "^2.7.1"
 
+"@nestjs/swagger@^1.2.2":
+  version "1.2.2"
+  resolved "https://registry.yarnpkg.com/@nestjs/swagger/-/swagger-1.2.2.tgz#b506e82b59d3a30601047c6bcdbe25ee6a2e21d6"
+  dependencies:
+    lodash "^4.17.4"
+    swagger-ui-express "^2.0.11"
+
 "@nestjs/testing@^4.5.5":
   version "4.6.6"
   resolved "https://registry.yarnpkg.com/@nestjs/testing/-/testing-4.6.6.tgz#e47c9a9ff8da666eb31eafcf2c4c84ac8c2e99fa"
@@ -4389,6 +4396,10 @@ supports-color@^5.2.0:
   resolved "https://registry.yarnpkg.com/supports-color/-/supports-color-5.3.0.tgz#5b24ac15db80fa927cf5227a4a33fd3c4c7676c0"
   dependencies:
     has-flag "^3.0.0"
+
+swagger-ui-express@^2.0.11:
+  version "2.0.15"
+  resolved "https://registry.yarnpkg.com/swagger-ui-express/-/swagger-ui-express-2.0.15.tgz#fba85a357b40c0d629e942537199987b8085587d"
 
 symbol-observable@1.0.1:
   version "1.0.1"
