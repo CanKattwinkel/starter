@@ -22,8 +22,13 @@ export class UserMiddleware implements NestMiddleware {
         next();
         return;
       }
-      const verified: UserInfo = jwt.verify(jwtToken, this.config.runtimeConfiguration.jwtSecret) as UserInfo;
-      req.user = await this.userService.getByMail(verified.mail);
+
+      try {
+        const verified: UserInfo = jwt.verify(jwtToken, this.config.runtimeConfiguration.jwtSecret) as UserInfo;
+        req.user = await this.userService.getByMail(verified.mail);
+      } catch (err) {
+        // couldnt add any user;
+      }
 
       next();
     };
