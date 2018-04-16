@@ -6,15 +6,15 @@
 - npm (installed with nodejs - please do not use npm directly but yarn) 
 - yarn (`npm i -g yarn`)
 - Angular CLI (`yarn global add @angular/cli`)
-- VirtualBox
-- Vagrant
+* `VirtualBox + Vagrant` OR `docker + docker-compose`
 
 ## How do you turn this on?
 
 
 - Database `cd env`
-    1. Start Database: `vagrant up` 
-- Client `cd client`
+  1.  Start Database: 
+    * Either using `vagrant up` (shut down via: `vagrant halt`)
+    * Or by running `docker-compose up` (shut down: [CTRL]+[C])- Client `cd client`
     1. Install dependencies with `yarn`
     1. Copy i18n config `./client/xliffmerge.template.json` -> `./client/xliffmerge.json` and add Google Translate API key
     1. Start development server with `yarn start`
