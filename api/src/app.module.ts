@@ -5,6 +5,7 @@ import {UserModule} from './modules/user/user.module';
 import {UserMiddleware} from './modules/user/user.middleware';
 import {ConfigModule} from './modules/config/config.module';
 import {ParkspotModule} from './modules/parkspot/parkspot.module';
+import {SessionModule} from './modules/session/session.module';
 
 @Module({
   imports: [
@@ -12,6 +13,7 @@ import {ParkspotModule} from './modules/parkspot/parkspot.module';
     UserModule,
     ConfigModule,
     ParkspotModule,
+    SessionModule,
   ],
   controllers: [AppController],
   components: [],

@@ -1,6 +1,5 @@
-import {HttpException} from '@nestjs/core';
 import {Middleware} from '@nestjs/common/utils/decorators/component.decorator';
-import {NestMiddleware} from '@nestjs/common';
+import {HttpException, NestMiddleware} from '@nestjs/common';
 import * as passport from 'passport';
 import {Request} from 'express';
 import {headerNameXsrf} from '@core/auth/xsrf-token';
@@ -36,10 +35,32 @@ export class AuthMiddleware implements NestMiddleware {
    * Checks whether the xsrf Header is set and matches the default one*/
   checkXsrfToken(req: Request) {
     const received: string | undefined = req.header(headerNameXsrf);
-    let token = extractJwt(req);
-    const verified: UserInfo = jwt.verify(token, this.config.runtimeConfiguration.jwtSecret) as UserInfo;
-    if (!verified || received !== verified.xsrfToken) {
-      throw new HttpException('unauthorized', 401);
+    if (!received) {
+      this.throwError('No  XSRF Header provided!');
     }
+    let token = extractJwt(req);
+    if (!token) {
+      this.throwError('No token provieded!');
+    }
+
+    let verified: UserInfo | null;
+
+    try {
+      verified = jwt.verify(token, this.config.runtimeConfiguration.jwtSecret) as UserInfo;
+    } catch (e) {
+      this.throwError('Couldn\'t verify a token');
+    }
+
+
+    if (!verified || received !== verified.xsrfToken) {
+      // force jump to catch block..
+      // throw new HttpException('unauthorized', 401);
+      this.throwError('Attempted Auth with invalid XSRF Header!');
+    }
+  }
+
+  throwError(logMsg: string) {
+    console.log(logMsg);
+    throw new HttpException('unauthorized', 401);
   }
 }

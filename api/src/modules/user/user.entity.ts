@@ -3,12 +3,13 @@ import {
   BeforeUpdate,
   Column,
   CreateDateColumn,
-  Entity,
+  Entity, OneToMany,
   PrimaryGeneratedColumn,
   UpdateDateColumn
 } from 'typeorm';
 import {UserLevel} from './user-level.enum';
 import {hashIt} from '../../utils/encrypt';
+import {SessionEntity} from '../session/session.entity';
 
 @Entity()
 export class UserEntity {
@@ -42,5 +43,8 @@ export class UserEntity {
       this.password = await hashIt(this.password);
     }
   }
+
+  @OneToMany(type => SessionEntity, session => session.user)
+  sessions: Promise<SessionEntity[]>;
 
 }

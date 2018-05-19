@@ -1,0 +1,7 @@
+<ul>
+  <li *ngFor="let item of sessions$ | async as list">
+    {{item | json}}
+
+    <button (click)="removeSession(item)">Delete Session</button>
+  </li>
+</ul>

@@ -1,6 +1,6 @@
 version: '3.1'
 services:
-  db:
+  starter-db:
     image: postgres
     restart: always
     ports:
@@ -8,8 +8,3 @@ services:
     environment:
       POSTGRES_USER: prk
       POSTGRES_PASSWORD: prk
-  adminer:
-    image: adminer
-    restart: always
-    ports:
-      - 8080:8080

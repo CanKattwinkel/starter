@@ -10,8 +10,8 @@ export class UserService {
   constructor(private userRepo: UserRepo) {
   }
 
-  async getByMail(mail): Promise<Partial<UserEntity>> {
-    const user = await this.userRepo.findOne({select: ['mail', 'password', 'userLevel'], where: {mail}});
+  async getByMail(mail: string): Promise<Partial<UserEntity>> {
+    const user = await this.userRepo.findOne({select: ['mail', 'password', 'userLevel', 'id'], where: {mail}});
     if (!user) {
       throw new HttpException(`Couldn't find user for mail: '${mail}'`, 401);
     }

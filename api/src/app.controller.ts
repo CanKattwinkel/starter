@@ -1,11 +1,9 @@
-import {Controller, Get, Req, Res} from '@nestjs/common';
-import {Request, Response} from 'express';
+import {Controller, Get} from '@nestjs/common';
 
 @Controller()
 export class AppController {
   @Get()
-  root(@Req() req: Request, @Res() res: Response): string {
-    console.log(req.user);
+  root(): string {
     return 'Hello World!';
   }
 }
