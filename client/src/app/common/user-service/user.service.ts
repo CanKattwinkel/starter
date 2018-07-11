@@ -114,17 +114,13 @@ export class UserService {
   /**
    * Use this when the JWT is already expired*/
   async outdatedRenewal() {
-    console.log('TOKEN WAS OUTDATED; THEREFORE GETTING  AFRESH ONE');
     const refreshToken = await this.storageService.getItem(refreshTokenKey);
 
-
     if (!refreshToken) {
-      throw new Error('Couldnt refresh since no refresh token exists');
-      // todo logout
+      this.userInfo$.next(null);
+      throw new Error('Couldn\'t refresh since no refresh token exists');
     }
-
     const result = await this.httpClient.post<UserInfo>('/api/auth/refurbishment', {refreshToken: refreshToken}).toPromise();
-
     await this.saveUserInfo(result);
 
   }
@@ -138,39 +134,6 @@ export class UserService {
     await this.storageService.setItem(userInfoKey, userInfo);
   }
 
-
-  /**
-   * Takes care that the acces token gets refreshed before expiration. */
-  private setupAccessTokenRefresh(userInfo: UserInfo) {
-
-
-    // dont know if i want to keep this at all since it cant handle situations on where the user goes offline.
-    // OPtion 1: Listen for Online/offline
-    // OPtion 2: Create a token interceptor that just re-sendes 401.
-
-    // Option 3: Maybe the best. Before sending each HTTP Request determine whether the token is expired, then refresh.
-    // i like this.
-    const padding = 10;
-
-    console.log('SHOUDL REFRESH THE TOKEN NOW');
-    const xSecsBeforeEnd = subSeconds(userInfo.expiresAt, padding);
-    const diffInMs = xSecsBeforeEnd.getTime() - new Date().getTime();
-    console.log('diffInMs', diffInMs);
-
-    if (diffInMs > 0) {
-      console.log('setting up a refresh in ', diffInMs / 1000);
-      setTimeout(() => {
-        alert(1);
-        this.tokenRenewal(userInfo);
-      }, diffInMs);
-
-    } else {
-      // token is somehow already outdated. Refresh immediately
-      throw new Error('token is somehow already outdated. Refresh immediately');
-    }
-
-
-  }
 
 
 }
